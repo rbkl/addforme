@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import classnames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addListItem, getListById } from '../../actions/listActions';
@@ -90,7 +91,7 @@ class AddListItem extends Component {
             error={errors.name}
           />
           <TextFieldGroup
-            placeholder="Order"
+            placeholder="* Order"
             name="order"
             value={this.state.order}
             onChange={this.onChange}
@@ -117,7 +118,7 @@ class AddListItem extends Component {
     return (
       <div className="row">
         <div className="col-md-12 m-auto mt-3 mb-3 text-right">
-          <button className="btn btn-light btn-sm mb-3" onClick={this.onCheck}><i className="fa fa-plus pr editable"/></button>
+          <button className="btn btn-light btn-sm mb-3" onClick={this.onCheck}><i className={classnames("fa fa-plus pr",{'editable': !opened})}/></button>
             {itemFields}
         </div>
       </div>

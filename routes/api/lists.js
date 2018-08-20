@@ -77,21 +77,51 @@ router.post('/:list_id', (req, res) => {
   }
 
   // Get fields
-  const listFields = {};
-  
-  if(req.body.title) listFields.title = req.body.title;
-  if(req.body.link) listFields.link = req.body.link;
-  if(req.body.instructions) listFields.instructions = req.body.instructions;
+  const listFields = {
+  };
+
+  const unsetFields = {
+  };
+
+  if(req.body.title) {
+    listFields.title = req.body.title;
+  } else {
+    unsetFields.title = req.body.title;
+  }
+
+  if(req.body.link) {
+    listFields.link = req.body.link;
+  } else {
+    unsetFields.link = req.body.link;
+  }
+
+  if(req.body.instructions) {
+    listFields.instructions = req.body.instructions;
+  } else {
+    unsetFields.instructions = req.body.instructions;
+  }
+
 
   // Update the list with the fields
 
   List.findById(req.params.list_id)
   .then(list => {
-    if(list) {
+    if(list && Object.keys(unsetFields).length === 0) {
       // Update
       List.findOneAndUpdate(
         { _id: list.id },
         { $set: listFields },
+        { new: true }
+      )
+      .then(list => res.json(list));
+    } else if (list && Object.keys(unsetFields).length > 0) {
+      // Update
+      List.findOneAndUpdate(
+        { _id: list.id },
+        {
+          $set: listFields,
+          $unset: unsetFields,
+         },
         { new: true }
       )
       .then(list => res.json(list));
@@ -135,7 +165,8 @@ router.post('/:list_id/add', (req, res) => {
     // Add to exp array
     list.items.unshift(newItem);
 
-    list.save().then(list => res.json(list));
+    list.save().then(list => res.json(list))
+    .catch(err => res.status(404).json({addlist: 'Issue adding to the list'}));
   })
   .catch(err => res.status(404).json({nolistfound: 'No list found'}));
 });
@@ -143,29 +174,30 @@ router.post('/:list_id/add', (req, res) => {
 // @route   POST api/lists/:list_id
 // @desc    Update list headers
 // @access  Public
-router.post('/:list_id', (req, res) => {
-
-
-  List.findOne({ list: req.params.list_id })
-    .then(list => {
-      if(list) {
-        const listFields = {};
-        listFields.title = (req.body.title ? req.body.title : list.title);
-        listFields.link = (req.body.link ? req.body.link : list.link);
-        listFields.instructions = (req.body.instructions ? req.body.instructions : list.instructions);
-        listFields.items = (req.body.items ? req.body.items : list.items);
-
-
-        // Update
-        List.findByIdAndUpdate(req.params.list_id,
-          { $set: listFields },
-          { new: true },
-        )
-        .then(list => res.json(list))
-      }
-    })
-    .catch(err => res.status(404).json({nolistfound: 'No list found'}));
-});
+// router.post('/:list_id', (req, res) => {
+//
+//
+//   List.findOne({ list: req.params.list_id })
+//     .then(list => {
+//       if(list) {
+//         const listFields = {
+//         };
+//         listFields.title = (req.body.title ? req.body.title : null);
+//         listFields.link = (req.body.link ? req.body.link : null);
+//         listFields.instructions = (req.body.instructions ? req.body.instructions : null);
+//         listFields.items = (req.body.items ? req.body.items : list.items);
+//
+//
+//         // Update
+//         List.findByIdAndUpdate(req.params.list_id,
+//           { $set: listFields },
+//           { new: true },
+//         )
+//         .then(list => res.json(list))
+//       }
+//     })
+//     .catch(err => res.status(404).json({nolistfound: 'No list found'}));
+// });
 
 
 // @route   POST api/lists/:list_id/:item_id
@@ -173,7 +205,9 @@ router.post('/:list_id', (req, res) => {
 // @access  Public
 router.post('/:list_id/:item_id', (req, res) => {
 
-  const itemData = {};
+  const itemData = {
+  };
+
   if(req.body.name) itemData.name = req.body.name;
   if(req.body.order) itemData.order = req.body.order;
   if(req.body.notes) itemData.notes = req.body.notes;
@@ -194,7 +228,8 @@ router.post('/:list_id/:item_id', (req, res) => {
 
     // Save
     list.save()
-    .then(list => res.json(list));
+    .then(list => res.json(list))
+    .catch(err => res.status(404).json({addlist: 'Issue adding to the list'}));
   })
   .catch(err => res.status(404).json({nolistfound: 'No list found'}));
 });
