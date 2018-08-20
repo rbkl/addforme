@@ -18,7 +18,7 @@ class List extends Component {
   }
 
   state = {
-    textToCopy: `https://addforme.herokuapp.com/lists/${this.props.match.params.list_id}`,
+    textToCopy: `https://www.addfor.me/lists/${this.props.match.params.list_id}`,
   }
 
   onChange(e) {
