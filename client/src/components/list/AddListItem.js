@@ -91,7 +91,7 @@ class AddListItem extends Component {
             error={errors.name}
           />
           <TextFieldGroup
-            placeholder="* Order"
+            placeholder="Order"
             name="order"
             value={this.state.order}
             onChange={this.onChange}

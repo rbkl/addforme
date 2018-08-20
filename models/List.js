@@ -25,7 +25,6 @@ const ListSchema = new Schema({
       },
       order: {
         type: String,
-        required: true
       },
       notes: {
         type: String,
