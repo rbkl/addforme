@@ -18,7 +18,7 @@ class List extends Component {
   }
 
   state = {
-    textToCopy: `https://www.addfor.me/lists/${this.props.match.params.list_id}`,
+    textToCopy: `http://www.addfor.me/lists/${this.props.match.params.list_id}`,
   }
 
   onChange(e) {
@@ -67,7 +67,7 @@ class List extends Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <Link to='/lists' className="btn btn-light mb-3 back-to-lists">
+              <Link to='/' className="btn btn-light mb-3 back-to-lists">
                 Back
               </Link>
             </div>
