@@ -1,0 +1,116 @@
+img {
+  width: 100%;
+}
+
+.container {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.landing {
+  position: relative;
+  background-color: #FEFEFE;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+
+/* .dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+html {
+  font-size: 16px;
+
+}
+
+@media (max-width: 575px) {
+  html {
+    font-size: 12px;
+  }
+
+  .nav-bar-logo {
+    font-family: Rock Salt, cursive !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+.nav-bar-logo {
+  font-family: Rock Salt, cursive !important;
+  font-size: 30px !important;
+  font-weight: bold !important;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.form-control {
+  font-size: 14px !important;
+}
+
+.link-text-input {
+  font-size: 10px !important;
+}
+
+
+@media (max-width: 575px) {
+  .link-text-input {
+    font-size: 6px !important;
+  }
+}
+
+.link-text-copy {
+  font-size: 10px !important;
+}
+
+.back-to-lists {
+  font-size: 10px !important;
+}
+
+.editable {
+  color: #5bc0de;
+}
+
+.list-icon-hidden {
+  color: lightgray;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
