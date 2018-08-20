@@ -21,7 +21,7 @@ class Landing extends Component {
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">Add For Me!
                 </h1>
-                <p className="lead">Quickly create an order form and let people add to it.</p>
+                <p className="lead">Quickly create a list and let people add to it.</p>
                 <hr />
                 <CreateList />
               </div>
