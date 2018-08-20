@@ -45,9 +45,9 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <div className="container">
           <Link className="navbar-brand nav-bar-logo" to="/">AddFor .Me</Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+        {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </button> */}
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
