@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import EditList from './EditList';
+import ListHeader from './ListHeader';
+import ItemList from './ItemList';
 import AddListItem from './AddListItem';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -40,7 +41,9 @@ class List extends Component {
     } else {
       listContent = (
         <div>
-          <EditList list={list} />
+          <ListHeader list={list} />
+          <hr />
+          <ItemList list={list} />
           <AddListItem listId={list._id} />
         </div>
       )
@@ -76,7 +79,7 @@ class List extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-12">
+            <div className="col">
               {listContent}
             </div>
           </div>

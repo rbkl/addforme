@@ -19,9 +19,9 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Add For Me!
-                </h1>
-                <p className="lead">Quickly create a list and let people add to it.</p>
+                <h4 className="display-3 mb-4 tag-line">Please, add for me!
+                </h4>
+                <p className="lead">Quickly create a shareable list, and add.</p>
                 <hr />
                 <CreateList />
               </div>

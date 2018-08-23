@@ -91,50 +91,56 @@ class ListItem extends Component {
     if (editable && !deleted) {
 
       listItemContent = (
-        <tr key={item._id}>
-          <th scope="row">
-            <button className="btn btn-light btn-sm" onClick={this.onClickDelete}><i className="fa fa-trash pr-1 editable"/></button>
-            <button className="btn btn-light btn-sm" onClick={this.onClickSave}><i className="fa fa-edit pr editable"/></button>
-          </th>
-          <td>
-            <TextFieldGroup
-              placeholder="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.onChange}
-            />
-          </td>
-          <td>
-            <TextFieldGroup
-              placeholder="Order"
-              name="order"
-              value={this.state.order}
-              onChange={this.onChange}
-            />
-          </td>
-          <td>
-            <TextFieldGroup
-              placeholder="Notes"
-              name="notes"
-              value={this.state.notes}
-              onChange={this.onChange}
-            />
-          </td>
-        </tr>
+        <div>
+          <div className='row'>
+            <div className='col-10'>
+              <TextFieldGroup
+                placeholder="Name"
+                name="name"
+                value={this.state.name}
+                onChange={this.onChange}
+              />
+              <TextFieldGroup
+                placeholder="Order"
+                name="order"
+                value={this.state.order}
+                onChange={this.onChange}
+              />
+              <TextFieldGroup
+                placeholder="Notes"
+                name="notes"
+                value={this.state.notes}
+                onChange={this.onChange}
+              />
+            </div>
+            <div className='col-2 text-right'>
+              <button className="btn btn-light btn-sm" onClick={this.onClickSave}><i className="fa fa-save pr editable"/></button>
+              <button className="btn btn-light btn-sm" onClick={this.onClickDelete}><i className="fa fa-trash pr-1 editable"/></button>
+            </div>
+          </div>
+        </div>
       )
 
     } else if (!editable && !deleted) {
 
       listItemContent = (
-        <tr key={item._id}>
-          <th scope="row" className="no-wrap">
-            <button className="btn btn-light btn-sm disabled"><i className="fa fa-trash pr-1 list-icon-hidden"/></button>
-            <button className="btn btn-light btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
-          </th>
-          <td>{this.state.name}</td>
-          <td>{this.state.order}</td>
-          <td>{this.state.notes}</td>
-        </tr>
+        <div>
+          <div className='row'>
+            <div className='col-10'>
+              <h6 className='font-weight-bold'>{this.state.name}</h6>
+              <p>
+                {this.state.order} <br/>
+                {this.state.notes}
+              </p>
+
+            </div>
+            <div className='col-2 text-right'>
+              <button className="btn btn-light btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
+              <button className="btn btn-light btn-sm disabled"><i className="fa fa-trash pr-1 list-icon-hidden"/></button>
+            </div>
+
+          </div>
+        </div>
       )
     } else if (deleted) {
 
@@ -143,7 +149,11 @@ class ListItem extends Component {
     };
 
 
-    return listItemContent
+    return (
+      <div className='card card-body bg-light mb-3'>
+        {listItemContent}
+      </div>
+    )
   }
 }
 
