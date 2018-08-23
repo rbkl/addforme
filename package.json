@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Quickly create an order form, and share to add to it",
   "main": "server.js",
+  "engines": {
+    "node" : "8.11.3",
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
