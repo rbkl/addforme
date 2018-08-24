@@ -138,7 +138,6 @@ class ListItem extends Component {
               <button className="btn btn-light btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
               <button className="btn btn-light btn-sm disabled"><i className="fa fa-trash pr-1 list-icon-hidden"/></button>
             </div>
-
           </div>
         </div>
       )
@@ -150,7 +149,7 @@ class ListItem extends Component {
 
 
     return (
-      <div className='card card-body bg-light mb-3'>
+      <div className='card card-list-item card-body bg-light mb-3'>
         {listItemContent}
       </div>
     )

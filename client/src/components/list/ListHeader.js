@@ -83,7 +83,7 @@ class ListHeader extends Component {
     if (!editable && !deleted) {
 
       listHeader = (
-        <div className='card bg-light mb-3'>
+        <div className='card card-list-header bg-light mb-3'>
           <h5 className="card-header mb-2">{this.state.title}</h5>
           <div className='card-body'>
             <div className="row mb-2">
@@ -96,7 +96,7 @@ class ListHeader extends Component {
                 <h6 className="text-muted">{this.state.instructions}</h6>
               </div>
               <div className="col text-right align-bottom">
-                <button className="btn btn-light btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
+                <button className="btn btn-light btn-header btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ class ListHeader extends Component {
     } else if (editable && !deleted) {
 
       listHeader = (
-        <div className='card bg-light mb-3'>
+        <div className='card bg-light mb-3 card-list-header'>
           <div className='card-header mb-2'>
             <TextFieldGroup
               placeholder="* Title"
@@ -136,7 +136,7 @@ class ListHeader extends Component {
                 />
               </div>
               <div className="col text-right align-bottom">
-                <button className="btn btn-light btn-sm" onClick={this.onClickSave}><i className="fa fa-save pr editable" /></button>
+                <button className="btn btn-light btn-sm btn-header" onClick={this.onClickSave}><i className="fa fa-save pr editable" /></button>
               </div>
             </div>
           </div>

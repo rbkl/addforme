@@ -1,5 +1,6 @@
 img {
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -109,7 +110,7 @@ html {
 }
 
 .editable {
-  color: #5bc0de;
+  color: #17a2b8;
 }
 
 .list-icon-hidden {
@@ -118,4 +119,28 @@ html {
 
 .no-wrap {
     white-space: nowrap;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.card-list-header {
+  font-family: 'Roboto', sans-serif !important;
+  background-color: #FFFFFF !important;
+}
+
+.card-header {
+  font-family: 'Roboto', sans-serif !important;
+  background-color: #17a2b8 !important;
+  color: white;
+}
+
+.card-list-item {
+  font-family: 'Roboto', sans-serif !important;
+
+}
+
+.btn-header {
+  background-color: white !important;
+  border-style: hidden !important;
 }
