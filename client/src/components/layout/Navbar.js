@@ -31,7 +31,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <div className="container">
           <Link className="navbar-brand nav-bar-logo abs-center-x" to="/">AddFor .Me</Link>
-          <ul class="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto">
           </ul>
         </div>
       </nav>
