@@ -13,13 +13,19 @@ import { getListById } from '../../actions/listActions';
 import { Link } from 'react-router-dom';
 
 class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: {},
+      textToCopy: `http://www.addfor.me/lists/${this.props.match.params.list_id}`,
+    }
+
+    this.onChange = this.onChange.bind(this);
+
+  }
 
   componentDidMount() {
     this.props.getListById(this.props.match.params.list_id);
-  }
-
-  state = {
-    textToCopy: `http://www.addfor.me/lists/${this.props.match.params.list_id}`,
   }
 
   onChange(e) {
@@ -54,7 +60,7 @@ class List extends Component {
             <div className="input-group-append">
               <button className="input-group-text btn btn-light link-text-copy" id="basic-addon2" onClick={this.onClick} data-toggle="tooltip" data-event='click focus' title="Copy Link">
                 <CopyToClipboard text={this.state.textToCopy}>
-                  <span>Copy</span>
+                  <span className="tooltiptext">Copy</span>
                 </CopyToClipboard>
               </button>
             </div>
