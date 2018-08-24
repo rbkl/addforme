@@ -103,7 +103,7 @@ class ListHeader extends Component {
 
       listHeader = (
         <div className='card bg-light mb-3 card-list-header'>
-          <div className='card-header mb-2 card-header-instructions'>
+          <div className='card-header mb-2 card-header-title-editting'>
             <TextFieldGroup
               placeholder="* Title"
               name="title"

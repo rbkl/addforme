@@ -73,7 +73,7 @@ class CreateList extends Component {
                   onChange={this.onChange}
                   error={errors.instructions}
                 />
-                <input type="submit" value="Create and Share" className="btn btn-info btn-block mt-4"/>
+                <input type="submit" value="Create and Share" className="btn btn-orange btn-block mt-4"/>
               </form>
             </div>
           </div>

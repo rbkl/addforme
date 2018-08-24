@@ -1,3 +1,15 @@
+
+
+/*
+
+#5C9EAD - teal for buttons
+#FFFFFF - white
+#326273 - navyish for navbar
+#EEEEEE - gray for background
+#E39774 - orange for other buttons
+
+*/
+
 img {
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -9,7 +21,7 @@ img {
 
 .landing {
   position: relative;
-  background-color: #FEFEFE;
+  background-color: #EEEEEE;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -110,7 +122,17 @@ html {
 }
 
 .editable {
-  color: #17a2b8;
+  color: #5C9EAD;
+}
+
+.btn-orange {
+  background-color: #E39774;
+  color: #FFFFFF;
+}
+
+.btn-teal {
+  background-color: #5C9EAD;
+  color: #FFFFFF;
 }
 
 .list-icon-hidden {
@@ -127,10 +149,18 @@ html {
     transform: translateX(-50%);
 }
 
-.navbar {
+.navbar, .footer-bar {
   height: 60px;
+  background-color: #326273;
 }
 
+.list-page, .app-pages, .App {
+  background-color: #EEEEEE;
+}
+
+.nav-bar-logo, .footer-bar {
+  color: #FFFFFF;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 .text-field-group {
@@ -142,10 +172,16 @@ html {
   margin: 0px 0px 0px 0px !important;
 }
 
-.card-header {
-  background-color: #17a2b8 !important;
-  color: white;
+.card-header-title-editting {
+  background-color: #FFFFFF !important;
   margin: 0px 0px 0px 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.card-header {
+  background-color: #5C9EAD !important;
+  color: white;
+  padding-bottom: 5px !important;
 }
 
 .card-list-item {

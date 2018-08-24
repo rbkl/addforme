@@ -54,7 +54,7 @@ class App extends Component {
           <div className="App">
             <Navbar/>
             <Route exact path="/" component={Landing} />
-              <div className="container">
+              <div className="container app-pages">
                 <Route exact path="/lists" component={Lists}/>
                 <Route exact path="/lists/:list_id" component={List}/>
                 <Route exact path="/create-list" component={CreateList}/>
