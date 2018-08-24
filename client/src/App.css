@@ -39,14 +39,6 @@ img {
     font-family: 'Roboto', sans-serif;
 }
 
-/* .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
 
 .card-form {
   opacity: 0.9;
@@ -133,6 +125,11 @@ html {
 .btn-teal {
   background-color: #5C9EAD;
   color: #FFFFFF;
+  height: 22px;
+  vertical-align: middle;
+  padding-top: 2px;
+  border-style: solid;
+  border-color: #EEEEEE;
 }
 
 .list-icon-hidden {
@@ -162,6 +159,9 @@ html {
   color: #FFFFFF;
 }
 
+.footer-bar {
+}
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 .text-field-group {
   font-family: 'Roboto', sans-serif !important;
@@ -182,6 +182,8 @@ html {
   background-color: #5C9EAD !important;
   color: white;
   padding-bottom: 5px !important;
+  border-bottom-color: #EEEEEE;
+  border-bottom-style: solid;
 }
 
 .card-list-item {
