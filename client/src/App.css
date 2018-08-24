@@ -155,7 +155,7 @@ html {
   background-color: #EEEEEE;
 }
 
-.nav-bar-logo, .footer-bar {
+.nav-bar-logo, .nav-bar-logo:hover, .footer-bar {
   color: #FFFFFF;
 }
 
