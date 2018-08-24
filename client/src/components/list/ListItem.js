@@ -87,7 +87,7 @@ class ListItem extends Component {
     if (editable && !deleted) {
 
       listItemContent = (
-        <div>
+        <div className='card card-list-item card-body bg-light mb-3'>
           <div className='row'>
             <div className='col-10'>
               <TextFieldGroup
@@ -120,7 +120,7 @@ class ListItem extends Component {
     } else if (!editable && !deleted) {
 
       listItemContent = (
-        <div>
+        <div className='card card-list-item card-body bg-light mb-3'>
           <div className='row'>
             <div className='col-10'>
               <h6 className='font-weight-bold card-list-item-name'>{this.state.name}</h6>
@@ -144,11 +144,7 @@ class ListItem extends Component {
     };
 
 
-    return (
-      <div className='card card-list-item card-body bg-light mb-3'>
-        {listItemContent}
-      </div>
-    )
+    return listItemContent
   }
 }
 

@@ -58,7 +58,7 @@ class List extends Component {
           <div className="input-group input-group-sm mb-3">
             <input type="text" className="form-control link-text-input" value={this.state.textToCopy} aria-describedby="basic-addon2" onChange={this.onChange}/>
             <div className="input-group-append">
-              <button className="input-group-text btn btn-orange link-text-copy" id="basic-addon2" onClick={this.onClick} data-toggle="tooltip" data-event='click focus' title="Copy Link">
+              <button className="input-group-text btn btn-teal link-text-copy" id="basic-addon2" onClick={this.onClick} data-toggle="tooltip" data-event='click focus' title="Copy Link">
                 <CopyToClipboard text={this.state.textToCopy}>
                   <span className="tooltiptext">Copy</span>
                 </CopyToClipboard>
@@ -76,7 +76,7 @@ class List extends Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <Link to='/' className="btn btn-orange mb-3 back-to-lists">
+              <Link to='/' className="btn btn-teal mb-3 back-to-lists">
                 Home
               </Link>
             </div>
