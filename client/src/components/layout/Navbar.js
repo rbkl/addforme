@@ -11,22 +11,6 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
-
-    const authLinks = (
-      <ul className="navbar-nav ml-auto">
-      </ul>
-    );
-
-    const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        {/* <li className="nav-item">
-          <Link className="nav-link" to="/register">Sign In</Link>
-        </li> */}
-      </ul>
-    );
-
-
     return (
       <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <div className="container">
