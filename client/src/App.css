@@ -127,6 +127,7 @@ html {
 .card-list-header {
   font-family: 'Roboto', sans-serif !important;
   background-color: #FFFFFF !important;
+  padding: -10px 0px -10px 0px !important;
 }
 
 .card-header {
@@ -137,10 +138,28 @@ html {
 
 .card-list-item {
   font-family: 'Roboto', sans-serif !important;
-
+  padding-bottom: -50px !important;
 }
 
 .btn-header {
   background-color: white !important;
   border-style: hidden !important;
+}
+
+
+.card-list-item-order-notes {
+  padding-bottom: 0px !important;
+  margin-bottom: -10px !important;
+}
+
+.card-list-item-name {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
+
+.card-body-list-info {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+  margin-top: -10px !important;
 }

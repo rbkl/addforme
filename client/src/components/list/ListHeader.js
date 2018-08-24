@@ -84,8 +84,8 @@ class ListHeader extends Component {
 
       listHeader = (
         <div className='card card-list-header bg-light mb-3'>
-          <h5 className="card-header mb-2">{this.state.title}</h5>
-          <div className='card-body'>
+          <h5 className="card-header mb-2 card-header-title">{this.state.title}</h5>
+          <div className='card-body card-body-list-info'>
             <div className="row mb-2">
               <div className="col">
                 <a href={this.state.link} target="_blank">{this.state.link}</a>
@@ -93,7 +93,7 @@ class ListHeader extends Component {
             </div>
             <div className="row">
               <div className="col">
-                <h6 className="text-muted">{this.state.instructions}</h6>
+                <h6 className="text-muted card-header-instructions">{this.state.instructions}</h6>
               </div>
               <div className="col text-right align-bottom">
                 <button className="btn btn-light btn-header btn-sm" onClick={this.handleClick}><i className="fa fa-edit pr" /></button>
@@ -107,7 +107,7 @@ class ListHeader extends Component {
 
       listHeader = (
         <div className='card bg-light mb-3 card-list-header'>
-          <div className='card-header mb-2'>
+          <div className='card-header mb-2 card-header-instructions'>
             <TextFieldGroup
               placeholder="* Title"
               name="title"
@@ -115,7 +115,7 @@ class ListHeader extends Component {
               onChange={this.onChange}
             />
           </div>
-          <div className='card-body'>
+          <div className='card-body card-body-list-info'>
             <div className="row">
               <div className="col">
                 <TextFieldGroup

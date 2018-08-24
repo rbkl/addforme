@@ -127,8 +127,8 @@ class ListItem extends Component {
         <div>
           <div className='row'>
             <div className='col-10'>
-              <h6 className='font-weight-bold'>{this.state.name}</h6>
-              <p>
+              <h6 className='font-weight-bold card-list-item-name'>{this.state.name}</h6>
+              <p className='card-list-item-order-notes'>
                 {this.state.order} <br/>
                 {this.state.notes}
               </p>

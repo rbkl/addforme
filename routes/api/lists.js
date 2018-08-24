@@ -163,7 +163,7 @@ router.post('/:list_id/add', (req, res) => {
     }
 
     // Add to exp array
-    list.items.unshift(newItem);
+    list.items.push(newItem);
 
     list.save().then(list => res.json(list))
     .catch(err => res.status(404).json({addlist: 'Issue adding to the list'}));
