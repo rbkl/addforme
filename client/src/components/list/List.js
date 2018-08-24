@@ -37,7 +37,7 @@ class List extends Component {
 
     if(list === null || loading || Object.keys(list).length === 0) {
       listContent = <Spinner />
-      linkCopy = <h1></h1>
+      linkCopy = <span />;
     } else {
       listContent = (
         <div>

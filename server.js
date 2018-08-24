@@ -6,8 +6,6 @@ const path = require('path');
 const http = require("http");
 
 const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
 const lists = require('./routes/api/lists');
 
 const app = express();
@@ -36,8 +34,6 @@ require('./config/passport')(passport);
 
 // Use routes
 app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
 app.use('/api/lists', lists);
 
 // Server static assets if in production

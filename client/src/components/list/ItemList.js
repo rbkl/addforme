@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import isEmpty from '../../validation/is-empty';
-import ListItemGroup from '../common/ListItemGroup';
-import TextFieldGroup from '../common/TextFieldGroup';
 import ListItem from './ListItem';
 
 class ItemList extends Component {

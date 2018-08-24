@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import isEmpty from '../../validation/is-empty';
-import ListItemGroup from '../common/ListItemGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
-import ListItem from './ListItem';
 import { editListHeaders } from '../../actions/listActions';
 
 
@@ -75,7 +72,6 @@ class ListHeader extends Component {
   }
 
   render() {
-    const { list } = this.props;
     const { editable, deleted } = this.state;
 
     let listHeader;
@@ -160,7 +156,6 @@ class ListHeader extends Component {
 }
 
 ListHeader.propTypes = {
-  list: PropTypes.object.isRequired,
   editable: PropTypes.bool,
   deleted: PropTypes.bool,
   editListHeaders: PropTypes.func.isRequired,

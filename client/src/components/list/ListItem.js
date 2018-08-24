@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
-import isEmpty from '../../validation/is-empty';
 
 // Import Actions
 import { deleteListItem, editListItem } from '../../actions/listActions';
@@ -13,7 +10,6 @@ class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: {},
       editable: false,
       deleted: false,
       errors: {},
@@ -83,7 +79,6 @@ class ListItem extends Component {
 
 
   render() {
-    const { item, listId } = this.props;
     const { editable, deleted } = this.state;
 
     let listItemContent;
