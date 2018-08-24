@@ -1,10 +1,10 @@
 img {
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .landing {
@@ -15,7 +15,7 @@ img {
   height: 100vh;
   margin-top: -24px;
   margin-bottom: -50px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .landing-inner {
@@ -24,7 +24,7 @@ img {
 
 .tag-line {
     font-size: 36px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* .dark-overlay {
@@ -61,7 +61,7 @@ html {
   }
 
   .nav-bar-logo {
-    font-family: Rock Salt, cursive !important;
+    font-family: 'Rock Salt', cursive !important;
     font-size: 20px !important;
     font-weight: bold !important;
   }
@@ -69,8 +69,8 @@ html {
 
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 .nav-bar-logo {
-  font-family: Rock Salt, cursive !important;
-  font-size: 30px !important;
+  font-family: 'Rock Salt', cursive !important;
+  font-size: 25px !important;
   font-weight: bold !important;
 }
 
@@ -124,20 +124,22 @@ html {
 
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-.card-list-header {
+.text-field-group {
   font-family: 'Roboto', sans-serif !important;
+}
+
+.card-list-header {
   background-color: #FFFFFF !important;
-  padding: -10px 0px -10px 0px !important;
+  margin: 0px 0px 0px 0px !important;
 }
 
 .card-header {
-  font-family: 'Roboto', sans-serif !important;
   background-color: #17a2b8 !important;
   color: white;
+  margin: 0px 0px 0px 0px !important;
 }
 
 .card-list-item {
-  font-family: 'Roboto', sans-serif !important;
   padding-bottom: -50px !important;
 }
 
