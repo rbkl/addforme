@@ -79,6 +79,7 @@ class ListItem extends Component {
 
 
   render() {
+    const errors = this.state.errors;
     const { editable, deleted } = this.state;
 
     let listItemContent;

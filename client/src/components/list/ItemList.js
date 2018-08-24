@@ -28,6 +28,7 @@ class ItemList extends Component {
 
   render() {
     const { list } = this.props;
+    const errors = this.state.errors;
 
     const itemCards = list.items.map(item => (
       <ListItem
