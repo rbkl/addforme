@@ -70,7 +70,7 @@ html {
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 .nav-bar-logo {
   font-family: 'Rock Salt', cursive !important;
-  font-size: 25px !important;
+  font-size: 20px !important;
   font-weight: bold !important;
 }
 
@@ -121,6 +121,15 @@ html {
     white-space: nowrap;
 }
 
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar {
+  height: 60px;
+}
 
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');

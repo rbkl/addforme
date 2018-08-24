@@ -15,18 +15,6 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
-            <img
-              className="rounded-circle"
-              src={user.avatar}
-              style={{ width: '25px', marginRight: "5px"}}
-              alt={user.name}
-              title="You must have a Gravatar connected
-              to your email to display an image">
-            </img>Logout
-            </a>
-        </li>
       </ul>
     );
 
@@ -42,20 +30,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <div className="container">
-          <Link className="navbar-brand nav-bar-logo" to="/">AddFor .Me</Link>
-        {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-            <span className="navbar-toggler-icon"></span>
-          </button> */}
-
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                {/* <Link className="nav-link" to="/lists"> Lists
-                </Link> */}
-              </li>
-            </ul>
-            {isAuthenticated ? authLinks : guestLinks }
-          </div>
+          <Link className="navbar-brand nav-bar-logo abs-center-x" to="/">AddFor .Me</Link>
+          <ul class="navbar-nav ml-auto">
+          </ul>
         </div>
       </nav>
     );
