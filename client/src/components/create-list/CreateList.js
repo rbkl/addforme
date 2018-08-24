@@ -53,7 +53,7 @@ class CreateList extends Component {
             <div className="col-md-8 m-auto">
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* Title (ex. Chipotle lunch order)"
+                  placeholder="* Title (e.g. Chipotle lunch order)"
                   name="title"
                   value={this.state.title}
                   onChange={this.onChange}
@@ -67,7 +67,7 @@ class CreateList extends Component {
                   error={errors.link}
                 />
                 <TextFieldGroup
-                  placeholder="Instructions (ex. Complete by noon!)"
+                  placeholder="Instructions (e.g. Complete by noon!)"
                   name="instructions"
                   value={this.state.instructions}
                   onChange={this.onChange}
