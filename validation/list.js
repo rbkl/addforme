@@ -16,7 +16,7 @@ module.exports = function validateListInput(data) {
     errors.title = 'Please add a title';
   }
 
-  if(!Validator.isURL(data.link)) {
+  if(!Validator.isEmpty(data.link) && !Validator.isURL(data.link)) {
     errors.link = 'Not a valid URL';
   }
 

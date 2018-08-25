@@ -158,7 +158,7 @@ ListItem.propTypes = {
   deleted: PropTypes.bool.isRequired,
   deleteListItem: PropTypes.func.isRequired,
   editListItem: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object,
 }
 
 ListItem.defaultProps = {
