@@ -95,18 +95,21 @@ class ListItem extends Component {
                 name="name"
                 value={this.state.name}
                 onChange={this.onChange}
+                errors={errors.name}
               />
               <TextFieldGroup
                 placeholder="Order"
                 name="order"
                 value={this.state.order}
                 onChange={this.onChange}
+                errors={errors.order}
               />
               <TextFieldGroup
                 placeholder="Notes"
                 name="notes"
                 value={this.state.notes}
                 onChange={this.onChange}
+                errors={errors.notes}
               />
             </div>
             <div className='col-2 text-right'>
@@ -155,7 +158,7 @@ ListItem.propTypes = {
   deleted: PropTypes.bool.isRequired,
   deleteListItem: PropTypes.func.isRequired,
   editListItem: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  errors: PropTypes.object.isRequired,
 }
 
 ListItem.defaultProps = {

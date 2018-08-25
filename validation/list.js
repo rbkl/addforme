@@ -16,6 +16,7 @@ module.exports = function validateListInput(data) {
     errors.title = 'Please add a title';
   }
 
+
   return {
     errors: errors,
     isValid: isEmpty(errors)

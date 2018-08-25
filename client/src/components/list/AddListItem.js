@@ -118,7 +118,9 @@ class AddListItem extends Component {
       <div className="row">
         <div className="col-md-12 m-auto mt-3 mb-3 text-right">
           <button className="btn btn-light btn-sm mb-3" onClick={this.onCheck}><i className={classnames("fa fa-plus pr",{'editable': !opened})}/></button>
-            {itemFields}
+        </div>
+        <div className="col-md-12 m-auto mt-3 mb-3 text-center">
+          {itemFields}
         </div>
       </div>
     )

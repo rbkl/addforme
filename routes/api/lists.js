@@ -11,6 +11,7 @@ const List = require('../../models/List');
 
 // Load validations
 const validateListInput = require('../../validation/list')
+const validateItemInput = require('../../validation/item')
 
 // @route   GET api/list/test
 // @desc    Tests posts routes
@@ -154,14 +155,22 @@ router.delete('/:list_id', passport.authenticate('jwt', { session: false }), (re
 // @access  Public
 router.post('/:list_id/add', (req, res) => {
 
+  const newItem = {
+    name: req.body.name,
+    order: req.body.order,
+    notes: req.body.notes,
+  }
+
+  const { errors, isValid } = validateItemInput(req.body);
+
+  // Check Validation
+  if(!isValid) {
+    // Return any errors with 400 Status
+    return res.status(400).json(errors)
+  }
+
   List.findById(req.params.list_id)
   .then(list => {
-    const newItem = {
-      name: req.body.name,
-      order: req.body.order,
-      notes: req.body.notes,
-    }
-
     // Add to exp array
     list.items.push(newItem);
 
