@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addListItem, getListById } from '../../actions/listActions';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
 
 class AddListItem extends Component {
@@ -43,7 +43,8 @@ class AddListItem extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const newId = mongoose.Types.ObjectId();
+    // const newId = mongoose.Types.ObjectId();
+    const newId = '325rijasdfoiajsdfo'
 
     const itemData = {
       id: newId,
