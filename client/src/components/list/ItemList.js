@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import ListItem from './ListItem';
 import Pusher from 'pusher-js';
 
+// Get keys
+require('npm/node_modules/dotenv').config();
+
 class ItemList extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +36,7 @@ class ItemList extends Component {
       items: this.props.items,
     })
 
-    const pusher = new Pusher('6539bb103ee8f455af28', {
+    const pusher = new Pusher('42885eae3e686bd9dac2', {
           cluster: 'us2',
           encrypted: true
         });

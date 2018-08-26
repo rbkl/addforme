@@ -4,11 +4,14 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const Pusher = require('pusher');
 
+// Get keys
+require('npm/node_modules/dotenv').config();
+
 // New Pusher
 const pusher = new Pusher({
-   appId: '585062',
-   key: '6539bb103ee8f455af28',
-   secret: '634e50cffd80a4a29942',
+   appId: '585064',
+   key: '42885eae3e686bd9dac2',
+   secret: process.env.APP_SECRET,
    cluster: 'us2',
    encrypted: true
  });
