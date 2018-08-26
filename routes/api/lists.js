@@ -3,9 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Pusher = require('pusher');
+const { config } = require('npm/node_modules/dotenv')
 
 // Get keys
-require('npm/node_modules/dotenv').config();
+
+config();
+
 
 // New Pusher
 const pusher = new Pusher({

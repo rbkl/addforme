@@ -11,9 +11,9 @@ const lists = require('./routes/api/lists');
 const app = express();
 
 const cors = require('cors')
+const { config } = require('npm/node_modules/dotenv')
 
-
-require('npm/node_modules/dotenv').config();
+config();
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
