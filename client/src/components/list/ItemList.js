@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 import Pusher from 'pusher-js';
 
 // Get keys
-require('npm/node_modules/dotenv').config();
+// require('npm/node_modules/dotenv').config();
 
 class ItemList extends Component {
   constructor(props) {
