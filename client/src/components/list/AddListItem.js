@@ -44,7 +44,7 @@ class AddListItem extends Component {
     e.preventDefault();
 
     // const newId = mongoose.Types.ObjectId();
-    const newId = '325rijasdfoiajsdfo'
+    const newId = ObjectID();
 
     const itemData = {
       id: newId,
