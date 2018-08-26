@@ -3,18 +3,18 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Pusher = require('pusher');
-const { config } = require('npm/node_modules/dotenv')
+// const { config } = require('npm/node_modules/dotenv')
 
 // Get keys
 
-config();
+// config();
 
 
 // New Pusher
 const pusher = new Pusher({
    appId: '585064',
    key: '42885eae3e686bd9dac2',
-   secret: process.env.APP_SECRET,
+   secret: 'fdeec04e2c22293f4bed',
    cluster: 'us2',
    encrypted: true
  });
