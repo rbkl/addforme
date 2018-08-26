@@ -5,11 +5,12 @@ import ListHeader from './ListHeader';
 import ItemList from './ItemList';
 import AddListItem from './AddListItem';
 
+
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
 import Spinner from '../common/Spinner';
-import { getListById } from '../../actions/listActions';
+import { getListById, getListItemsById } from '../../actions/listActions';
 import { Link } from 'react-router-dom';
 
 class List extends Component {
@@ -18,6 +19,15 @@ class List extends Component {
     this.state = {
       errors: {},
       textToCopy: `http://www.addfor.me/lists/${this.props.match.params.list_id}`,
+      title: '',
+      link: '',
+      instructions: '',
+      items: [ {
+
+      }],
+      nameToAdd: '',
+      orderToAdd: '',
+      notesToAdd: '',
     }
 
     this.onChange = this.onChange.bind(this);
@@ -26,6 +36,10 @@ class List extends Component {
 
   componentDidMount() {
     this.props.getListById(this.props.match.params.list_id);
+}
+
+  componentWillReceiveProps() {
+
   }
 
   onChange(e) {
@@ -37,6 +51,7 @@ class List extends Component {
 
   render() {
     const { list, loading } = this.props.list;
+
     let listContent;
     let linkCopy;
 
@@ -47,9 +62,9 @@ class List extends Component {
     } else {
       listContent = (
         <div>
-          <ListHeader list={list} />
+          <ListHeader listId={list._id} title={list.title} link={list.link} instructions={list.instructions}  />
           <hr />
-          <ItemList list={list} />
+          <ItemList listId={list._id} items={list.items} />
           <AddListItem listId={list._id} />
         </div>
       )
@@ -97,11 +112,14 @@ class List extends Component {
 
 List.propTypes = {
   getListById: PropTypes.func.isRequired,
-  list: PropTypes.object.isRequired
+  getListItemsById: PropTypes.func.isRequired,
+  list: PropTypes.object.isRequired,
+  items: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.list,
+  items: state.list.items,
 })
 
-export default connect(mapStateToProps, { getListById })(List);
+export default connect(mapStateToProps, { getListById, getListItemsById })(List);

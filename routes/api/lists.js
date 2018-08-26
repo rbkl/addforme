@@ -2,6 +2,16 @@ const express = require ('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const Pusher = require('pusher');
+
+// New Pusher
+const pusher = new Pusher({
+   appId: '585062',
+   key: '6539bb103ee8f455af28',
+   secret: '634e50cffd80a4a29942',
+   cluster: 'us2',
+   encrypted: true
+ });
 
 // Get Post Schema
 const List = require('../../models/List');
@@ -155,6 +165,8 @@ router.delete('/:list_id', passport.authenticate('jwt', { session: false }), (re
 // @access  Public
 router.post('/:list_id/add', (req, res) => {
 
+  const list_id = req.params.list_id;
+
   const newItem = {
     name: req.body.name,
     order: req.body.order,
@@ -173,6 +185,9 @@ router.post('/:list_id/add', (req, res) => {
   .then(list => {
     // Add to exp array
     list.items.push(newItem);
+
+    // Pusher triggers
+    pusher.trigger(list_id, 'added-item', newItem);
 
     list.save().then(list => res.json(list))
     .catch(err => res.status(404).json({addlist: 'Issue adding to the list'}));

@@ -39,7 +39,7 @@ class ListHeader extends Component {
       instructions: this.state.instructions,
     }
 
-    this.props.editListHeaders(this.props.list._id, listData);
+    this.props.editListHeaders(this.props.listId, listData);
 
     this.setState(prevState => ({
       editable: !prevState.editable,
@@ -65,9 +65,9 @@ class ListHeader extends Component {
   componentDidMount() {
 
     this.setState({
-      title: this.props.list.title,
-      link: this.props.list.link,
-      instructions: this.props.list.instructions,
+      title: this.props.title,
+      link: this.props.link,
+      instructions: this.props.instructions,
     })
   }
 

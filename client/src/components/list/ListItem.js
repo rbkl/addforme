@@ -50,6 +50,19 @@ class ListItem extends Component {
     })
   )}
 
+  handleTextChange(e) {
+    const listId = this.props.list._id;
+
+    if (e.keyCode === 13) {
+      const itemData = {
+
+      };
+      // axios.post(`http://localhost:5000/${listId}/add`, itemData);
+    } else {
+      this.setState({ text: e.target.value });
+    }
+  }
+
   onClickSave() {
 
     const itemData = {
@@ -167,6 +180,7 @@ ListItem.defaultProps = {
 }
 
 const mapStateToProps = state => ({
+
 })
 
 export default connect(mapStateToProps, { deleteListItem, editListItem })(ListItem);

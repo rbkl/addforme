@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_LIST, LIST_LOADING, GET_ERRORS, GET_LISTS, CLEAR_ERRORS, ADD_LIST, DELETE_LIST_ITEM, EDIT_LIST_HEADERS, EDIT_LIST_ITEM} from './types';
+import { GET_LIST, LIST_LOADING, GET_ERRORS, GET_LISTS, CLEAR_ERRORS, ADD_LIST, DELETE_LIST_ITEM, EDIT_LIST_HEADERS, EDIT_LIST_ITEM, GET_LIST_ITEMS } from './types';
 
 // List loading
 export const setListLoading = () => {
@@ -42,6 +42,24 @@ export const getListById = (list_id) => dispatch => {
 .catch(err =>
   dispatch({
     type: GET_LIST,
+    payload: null,
+  })
+);
+}
+
+// Get list by id
+export const getListItemsById = (list_id) => dispatch => {
+  dispatch(setListLoading());
+  axios.get(`/api/lists/${list_id}`)
+  .then(res =>
+    dispatch({
+      type: GET_LIST_ITEMS,
+      payload: res.data.items
+    })
+)
+.catch(err =>
+  dispatch({
+    type: GET_LIST_ITEMS,
     payload: null,
   })
 );

@@ -10,6 +10,8 @@ const lists = require('./routes/api/lists');
 
 const app = express();
 
+const cors = require('cors')
+
 
 require('npm/node_modules/dotenv').config();
 
@@ -28,6 +30,11 @@ mongoose
 
 // Passport middleware
 app.use(passport.initialize());
+
+// Use CORS
+app.use(cors());
+
+
 
 // Passport Configuration
 require('./config/passport')(passport);
