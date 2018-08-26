@@ -231,6 +231,9 @@ router.post('/:list_id/add', (req, res) => {
 // });
 
 
+
+
+
 // @route   POST api/lists/:list_id/:item_id
 // @desc    Edit or update item in list
 // @access  Public
@@ -264,8 +267,6 @@ router.post('/:list_id/:item_id', (req, res) => {
 
   List.findById(req.params.list_id)
   .then(list => {
-
-
 
     if(list && Object.keys(unsetFields).length === 0) {
 
