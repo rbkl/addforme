@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
-import mongoose from 'mongoose';
+
 
 // Import Actions
 import { deleteListItem, editListItem } from '../../actions/listActions';
@@ -52,22 +52,9 @@ class ListItem extends Component {
     })
   )}
 
-  handleTextChange(e) {
-    const listId = this.props.list._id;
-
-    if (e.keyCode === 13) {
-      const itemData = {
-
-      };
-      // axios.post(`http://localhost:5000/${listId}/add`, itemData);
-    } else {
-      this.setState({ text: e.target.value });
-    }
-  }
 
   onClickSave() {
 
-    // const newId = mongoose.Types.ObjectId();
 
     const itemData = {
       id: this.state.id,
@@ -76,7 +63,7 @@ class ListItem extends Component {
       notes: this.state.notes,
     }
 
-    const { item, listId } = this.props;
+    const { listId } = this.props;
 
     this.props.editListItem(listId, this.state.id, itemData);
 
