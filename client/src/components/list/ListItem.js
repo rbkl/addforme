@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
+import mongoose from 'mongoose';
 
 // Import Actions
 import { deleteListItem, editListItem } from '../../actions/listActions';
@@ -34,6 +35,7 @@ class ListItem extends Component {
   componentDidMount() {
 
     this.setState({
+      id: this.props.item._id,
       name: this.props.item.name,
       order: this.props.item.order,
       notes: this.props.item.notes,
@@ -65,7 +67,10 @@ class ListItem extends Component {
 
   onClickSave() {
 
+    // const newId = mongoose.Types.ObjectId();
+
     const itemData = {
+      id: this.state.id,
       name: this.state.name,
       order: this.state.order,
       notes: this.state.notes,
@@ -73,7 +78,7 @@ class ListItem extends Component {
 
     const { item, listId } = this.props;
 
-    this.props.editListItem(listId, item.id, itemData);
+    this.props.editListItem(listId, this.state.id, itemData);
 
     this.setState(prevState => ({
       editable: !prevState.editable,

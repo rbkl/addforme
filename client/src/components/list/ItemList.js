@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import ListItem from './ListItem';
 import Pusher from 'pusher-js';
 
-// Get keys
-// require('npm/node_modules/dotenv').config();
 
 class ItemList extends Component {
   constructor(props) {
@@ -43,6 +41,20 @@ class ItemList extends Component {
         const channel = pusher.subscribe(this.props.match.params.list_id);
         channel.bind('added-item', data => {
           this.setState({ items: [...this.state.items, data] });
+        });
+
+        channel.bind('deleted-item', removeIndex => {
+          const newItems = this.state.items;
+          newItems.splice(removeIndex, 1);
+          this.setState({ items: newItems });
+        });
+
+        channel.bind('editted-item', data => {
+          const newItems = data;
+          this.setState(prevState => ({
+              items: []
+            }));
+          this.setState({ items: newItems });
         });
   }
 

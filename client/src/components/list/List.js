@@ -22,9 +22,7 @@ class List extends Component {
       title: '',
       link: '',
       instructions: '',
-      items: [ {
-
-      }],
+      items: [],
       nameToAdd: '',
       orderToAdd: '',
       notesToAdd: '',

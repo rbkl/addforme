@@ -174,6 +174,7 @@ router.post('/:list_id/add', (req, res) => {
   const list_id = req.params.list_id;
 
   const newItem = {
+    _id: req.body.id,
     name: req.body.name,
     order: req.body.order,
     notes: req.body.notes,
@@ -235,33 +236,75 @@ router.post('/:list_id/add', (req, res) => {
 // @access  Public
 router.post('/:list_id/:item_id', (req, res) => {
 
-  const itemData = {
+  // Get fields
+  const listFields = {
   };
 
-  if(req.body.name) itemData.name = req.body.name;
-  if(req.body.order) itemData.order = req.body.order;
-  if(req.body.notes) itemData.notes = req.body.notes;
+  const unsetFields = {
+  };
 
+  if(req.body.name) {
+    listFields['items.$.name'] = req.body.name;
+  } else {
+    unsetFields['items.$.name'] = req.body.name;
+  }
+
+  if(req.body.order) {
+    listFields['items.$.order'] = req.body.order;
+  } else {
+    unsetFields['items.$.order'] = req.body.order;
+  }
+
+  if(req.body.notes) {
+    listFields['items.$.notes'] = req.body.notes;
+  } else {
+    unsetFields['items.$.notes'] = req.body.notes;
+  }
 
 
   List.findById(req.params.list_id)
   .then(list => {
 
-    // Find the item
-    const removeIndex =
-    list.items
-    .map(item => item.id)
-    .indexOf(req.params.item_id)
 
-    // Splice item out of array
-    list.items.splice(removeIndex, 1, itemData);
 
-    // Save
-    list.save()
-    .then(list => res.json(list))
-    .catch(err => res.status(404).json({addlist: 'Issue adding to the list'}));
+    if(list && Object.keys(unsetFields).length === 0) {
+
+      // Update
+      List.findOneAndUpdate (
+        {
+          '_id': req.params.list_id,
+          'items._id': req.params.item_id,
+         },
+        { $set: listFields },
+        { new: true }
+      )
+      .then(list => {
+        pusher.trigger(req.params.list_id, 'editted-item', list.items);
+        res.json(list);
+      });
+
+      // Get list items
+    } else if (list && Object.keys(unsetFields).length > 0) {
+      // Update
+      List.findOneAndUpdate(
+        {
+          '_id': req.params.list_id,
+          'items._id': req.params.item_id,
+         },
+        {
+          $set: listFields,
+          $unset: unsetFields,
+         },
+        { new: true }
+      )
+      .then(list => {
+        pusher.trigger(req.params.list_id, 'editted-item', list.items);
+        res.json(list);
+      });
+    }
   })
   .catch(err => res.status(404).json({nolistfound: 'No list found'}));
+
 });
 
 
@@ -281,6 +324,9 @@ router.delete('/:list_id/:item_id', (req, res) => {
 
     // Splice item out of array
     list.items.splice(removeIndex, 1);
+
+    // Pusher triggers
+    pusher.trigger(req.params.list_id, 'deleted-item', removeIndex);
 
     // Save
     list.save()
